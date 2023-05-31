@@ -1,11 +1,11 @@
 @font-face {
     font-family: "Digital-Dismay";
     src: url("./fonts/DigitalDismay-VAKw.ttf") format("truetype");
+    src: url("../fonts/DigitalDismay-VAKw.ttf") format("truetype");
 }
 
 @font-face {
     font-family: "Digital-Dismay-2";
-    src: url("https: //tyleraj93.github.io/calculator/fonts/DigitalDismay-VAKw.ttf") format("truetype");
 }
 
 @font-face {
