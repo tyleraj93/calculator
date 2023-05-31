@@ -1,3 +1,13 @@
+@font-face {
+    font-family: "Digital-Dismay";
+    src: url("fonts/DigitalDismay-VAKw.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Digital-Display";
+    src: url("fonts/DigitalDisplayRegular-ODEO.ttf") format("truetype");
+}
+
 body {
     display: flex;
     height: 100vh;
@@ -23,6 +33,16 @@ body {
     margin: 15px 0px;
     background-color: lightgrey;
     border-radius: 5px;
+}
+
+.display {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    height: 100%;
+    max-width: 360px;
+    font-family: "Digital-Dismay", "Digital-Display";
+    font-size: 66px;
 }
 
 .calc-body {
@@ -52,7 +72,9 @@ body {
     background-color: #00b3b3;
 }
 
-.operator {
+.operator,
+.equals,
+.switch {
     background-color: #ffffb3;
 }
 
