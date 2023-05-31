@@ -4,6 +4,11 @@
 }
 
 @font-face {
+    font-family: "Digital-Dismay-2";
+    src: url("https: //tyleraj93.github.io/calculator/fonts/DigitalDismay-VAKw.ttf") format("truetype");
+}
+
+@font-face {
     font-family: "Digital-Display";
     src: url("fonts/DigitalDisplayRegular-ODEO.ttf") format("truetype");
 }
@@ -41,7 +46,7 @@ body {
     align-items: flex-end;
     height: 100%;
     max-width: 360px;
-    font-family: "Digital-Dismay", "Digital-Display";
+    font-family: "Digital-Dismay", "Digital-Dismay-2","Digital-Display";
     font-size: 66px;
 }
 
