@@ -37,10 +37,8 @@ const operate = (a, operator, b) => {
         case "/":
             if (b === 0) {
                 return "3RR0R"; // Indicates division by zero error
-            } else if ((a / b) % 1 === 0) {
-                return divide(a, b);
             } else {
-                return divide(a, b).toFixed(8);
+                return divide(a, b).toFixed(6);
             }
         case "%":
             return modulus(a, b).toFixed(8);
@@ -96,10 +94,16 @@ equalButton.addEventListener("click", function () {
     a = operate(a, operator, b); // Perform the operation
     operator = ""; // Reset the operator
     b = ""; // Reset the second operand
-    if (a.toString().length < 8) {
-        display.textContent = a; // Display the result
-    } else {
+    let result = parseFloat(a);
+    if (a.includes(".") && a.length > 8) {
+        let results = a.split(".");
+        console.log(results);
+        let rounded = `${results[0]}.${results[1].slice(0, 7 - results[0].length)}`;
+        display.textContent = rounded;
+    }else if (isNaN(result)) {
         display.textContent = error; // Display an error message if result exceeds length limit
+    } else {
+        display.textContent = result; // Display the result
     }
 });
 
