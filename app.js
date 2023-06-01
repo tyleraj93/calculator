@@ -97,7 +97,6 @@ equalButton.addEventListener("click", function () {
     let result = parseFloat(a);
     if (a.includes(".") && a.length > 8) {
         let results = a.split(".");
-        console.log(results);
         let rounded = `${results[0]}.${results[1].slice(0, 7 - results[0].length)}`;
         display.textContent = rounded;
     }else if (isNaN(result)) {
