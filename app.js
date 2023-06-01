@@ -55,12 +55,16 @@ numberButtons.forEach((button) => {
                 // If no operator is selected, update the first operand (a)
                 if (a === "" || (a !== "" && !a.toString().includes("."))) {
                     a = a.toString() + number;
+                    console.log(`a = ${a}`);
+                    console.log(`b = ${b}`);
                     display.textContent = a;
                 }
             } else {
                 // If an operator is selected, update the second operand (b)
                 if (b === "" || (b !== "" && !b.toString().includes("."))) {
                     b = b.toString() + number;
+                    console.log(`a = ${a}`);
+                    console.log(`b = ${b}`);
                     display.textContent = b;
                 }
             }
@@ -69,10 +73,14 @@ numberButtons.forEach((button) => {
             if (operator === "") {
                 // If no operator is selected, update the first operand (a)
                 a = parseFloat(a.toString() + number);
+                console.log(`a = ${a}`);
+                console.log(`b = ${b}`);
                 display.textContent = a;
             } else if (operator !== "") {
                 // If an operator is selected, update the second operand (b)
                 b = parseFloat(b.toString() + number);
+                console.log(`a = ${a}`);
+                console.log(`b = ${b}`);
                 display.textContent = b;
             }
         } else {
@@ -92,19 +100,24 @@ operatorButtons.forEach((button) => {
 // Event listener for equal button
 equalButton.addEventListener("click", function () {
     a = operate(a, operator, b); // Perform the operation
-    operator = ""; // Reset the operator
-    b = ""; // Reset the second operand
     let result = parseFloat(a);
+    console.log(`result is ${result}`);
     if (a.toString().includes(".") && a.toString().length > 8) {
         let results = a.toString().split(".");
-        a = `${results[0]}.${results[1].slice(0, 7 - results[0].length)}`;
+        a = parseFloat(
+            `${results[0]}.${results[1].slice(0, 7 - results[0].length)}`
+        );
+        console.log(`a = ${a} type is ${typeof a}`);
         display.textContent = a;
-    }else if (isNaN(result)) {
+    } else if (isNaN(result)) {
         display.textContent = error; // Display an error message if result exceeds length limit
     } else {
         console.log(result);
         display.textContent = result; // Display the result
     }
+    operator = ""; // Reset the operator
+    b = ""; // Reset the second operand
+    console.log(`b = ${b}`);
 });
 
 // Event listener for clear button
