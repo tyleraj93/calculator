@@ -102,6 +102,7 @@ equalButton.addEventListener("click", function () {
     }else if (isNaN(result)) {
         display.textContent = error; // Display an error message if result exceeds length limit
     } else {
+        console.log(result);
         display.textContent = result; // Display the result
     }
 });
