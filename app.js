@@ -38,7 +38,7 @@ const operate = (a, operator, b) => {
             if (b === 0) {
                 return "3RR0R"; // Indicates division by zero error
             } else {
-                return divide(a, b).toFixed(6);
+                return divide(a, b);
             }
         case "%":
             return modulus(a, b).toFixed(8);
@@ -49,7 +49,7 @@ const operate = (a, operator, b) => {
 numberButtons.forEach((button) => {
     button.addEventListener("click", function (event) {
         const number = event.target.textContent;
-        if (number === "." && display.textContent.length < 8) {
+        if (number === "." && display.textContent.length <= 8) {
             // Decimal point input
             if (operator === "") {
                 // If no operator is selected, update the first operand (a)
@@ -64,7 +64,7 @@ numberButtons.forEach((button) => {
                     display.textContent = b;
                 }
             }
-        } else if (display.textContent.length < 8) {
+        } else if (display.textContent.length <= 8) {
             // Numeric input
             if (operator === "") {
                 // If no operator is selected, update the first operand (a)
@@ -95,10 +95,10 @@ equalButton.addEventListener("click", function () {
     operator = ""; // Reset the operator
     b = ""; // Reset the second operand
     let result = parseFloat(a);
-    if (a.includes(".") && a.length > 8) {
-        let results = a.split(".");
-        let rounded = `${results[0]}.${results[1].slice(0, 7 - results[0].length)}`;
-        display.textContent = rounded;
+    if (a.toString().includes(".") && a.toString().length > 8) {
+        let results = a.toString().split(".");
+        a = `${results[0]}.${results[1].slice(0, 7 - results[0].length)}`;
+        display.textContent = a;
     }else if (isNaN(result)) {
         display.textContent = error; // Display an error message if result exceeds length limit
     } else {
@@ -116,7 +116,7 @@ clearButton.addEventListener("click", function () {
 
 // Event listener for switch button
 switchButtom.addEventListener("click", function () {
-    if (display.textContent.length < 8) {
+    if (display.textContent.length <= 7) {
         if (operator === "") {
             a = -a; // Switch the sign of the first operand
             display.textContent = a; // Update the display
